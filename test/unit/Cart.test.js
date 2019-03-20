@@ -37,3 +37,13 @@ it('We have to check for item name, quantity and its price for all the items in 
     //expect(cart.itemQuantities().toString()).toBe('Apple - x2,Samsung - x4');
     expect(cart.itemizedList()).toEqual(expectedResult);
 });
+
+it('We have to check that only on sale items are returned from the cart.', () => {
+    const cart = new Cart();
+    cart.addItems (new Item ('Apple', 199, true), 2);
+    cart.addItems (new Item ('Samsung', 39999, false), 4);
+    cart.addItems (new Item ('Tesla.org', 32999999, true), 1);
+    var expectedResult = ['Apple x2 - $199.00', 'Tesla.org x1 - $32,999,999.00'];
+    //expect(cart.SaleItems().toString()).toBe('Apple - x2,Samsung - x4');
+    expect(cart.SaleItems()).toEqual(expectedResult);
+});
