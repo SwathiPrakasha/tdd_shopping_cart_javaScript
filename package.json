@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "test": "jest"
+  },
+  "name": "shoppingcart",
+  "version": "1.0.0",
+  "description": "It's a shopping cart.",
+  "main": "Cart.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.5.0"
+  }
+}
