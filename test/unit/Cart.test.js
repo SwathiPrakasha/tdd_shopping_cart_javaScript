@@ -20,7 +20,7 @@ it('We have to check the number of items in the cart.', () => {
     expect(cart.itemQuantities().length).toBe(expectedResult);
 });
 
-it('We have to check the item and its respective quantity for all the items in the cart', () => {
+it('We have to check the item and its respective quantity for all the items in the cart.', () => {
     const cart = new Cart();
     cart.addItems (new Item ('Apple', 399, true), 2);
     cart.addItems (new Item ('Samsung', 199, true), 4);
@@ -29,4 +29,11 @@ it('We have to check the item and its respective quantity for all the items in t
     expect(cart.itemQuantities()).toEqual(expectedResult);
 });
 
-
+it('We have to check for item name, quantity and its price for all the items in the cart.', () => {
+    const cart = new Cart();
+    cart.addItems (new Item ('Apple', 199, true), 2);
+    cart.addItems (new Item ('Samsung', 39999, true), 4);
+    var expectedResult = ['Apple x2 - $199.00', 'Samsung x4 - $39,999.00'];
+    //expect(cart.itemQuantities().toString()).toBe('Apple - x2,Samsung - x4');
+    expect(cart.itemizedList()).toEqual(expectedResult);
+});

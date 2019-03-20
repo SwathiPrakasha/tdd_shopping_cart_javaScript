@@ -21,12 +21,21 @@ module.exports =  class Cart {
             return itemQty;
         }
 
-        this.itemizedList =()=>{
-
+        this.itemizedList = () => {
+            var itemQuantityWithPrice = [];
+            var options = { style: 'currency', currency: 'USD' };
+            var numberFormat = new Intl.NumberFormat('en-US', options);
+            itemMap.forEach((value, key) => {
+                var updatedItem = `${key.name} x${value} - ${numberFormat.format(key.price)}`;
+                //var updatedItem = key.name + ' x' + value + ' - ' + numberFormat.format(key.price);
+                console.log(updatedItem);
+                itemQuantityWithPrice.push(updatedItem);
+            });
+            return itemQuantityWithPrice;
         }
 
-        this.SaleItems = () =>{
-            
+        this.SaleItems = () => {
+            return null;
         }
     }
 };
